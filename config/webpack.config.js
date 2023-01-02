@@ -1,9 +1,8 @@
 const path = require("path")
-const webpack = require("webpack")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   output: {
     path: path.resolve(__dirname, "../dist"),
     filename: "bundle.js",
@@ -12,10 +11,14 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/i,
-        use: ["style-loader", "css-loader"],
+        test: /\.ts$/i,
+        use: "ts-loader",
+        exclude: /node_modules/,
       },
     ],
+  },
+  resolve : {
+    extensions: [".ts", ".js"],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -23,5 +26,6 @@ module.exports = {
       inject: "body",
       publicPath: "./"
     })
-  ]
+  ],
+  devtool: 'inline-source-map'
 }

@@ -1,6 +1,10 @@
-body {
-  background-color: lightblue;
-
-  /* leave it to hide the scrollbars */
-  overflow: hidden;
+html,body {
+    margin: 0;
+    padding: 0;
+    background: #222;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    touch-action: none;
 }
